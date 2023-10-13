@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upright Education: The Blog</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>Upright Education: The Blog</h1>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search for entries...">
+        <br>
+        <input type="submit" value="Search">
+    </div>
+    <br>
+<!-- puppies -->
+    <div class="center-top">
+      <img src="https://images.unsplash.com/photo-1582456891925-a53965520520?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMHB1cHB5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="Cute Puppy 1">
+      <img src="https://images.unsplash.com/photo-1599692392256-2d084495fe15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGN1dGUlMjBwdXBweXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Cute Puppy 2">
+      <img src="https://images.unsplash.com/photo-1615751072497-5f5169febe17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y3V0ZSUyMHB1cHB5fGVufDB8fDB8fHww&auto.format&fit=crop&w=500&q=60" alt="Cute Puppy 3">
+    </div>
+<!-- published blog entries -->
+    <section class="blog-posts">
+      <article class="blog-post">
+        <h6 class="post_id"></h6>
+        <h3 class="title"></h3>
+        <p class="author"></p>
+        <p class="body"></p>
+      </article>
+
+      <article class="blog-post">
+        <h6 class="post_id"></h6>
+        <h3 class="title"></h3>
+        <p class="author"></p>
+        <p class="body"></p>
+      </article>
+    </section>
+<!-- blog entries people will submit -->
+    <div class="submit-entry">
+        <h2>Submit Your Own Entry</h2>
+        <form id="entry-form">
+            <label for="title">Title:</label>
+            <input type="text" class="title" required>
+            <label for="author">Author:</label>
+            <input type="text" class="author" required>
+            <label for="body">Content:</label>
+            <input type="text" class="body" required>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
