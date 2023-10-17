@@ -4,15 +4,10 @@ const fs = require("fs");
 const {v4:uuidv4}=require('uuid');
 const BLOG_PATH = "./API/blog.json"
 
-/* //Test to make sure the path is right 
-router.get("/hey", (req, res)=>{
-    res.json({message: "heyya"});
-}
-); */
 
-/* Endpoint: http://localhost:4000/Blog-Server/allComments
+/* Endpoint: http://localhost:4000/Blog-Server/
 display all comments from the blog.json file. */
-router.get("/allComments", (req, res)=>{
+router.get("/", (req, res)=>{
     let commentArray=readComments();
     res.json({message: "Showing all comments", comments: commentArray});
 }
@@ -62,6 +57,8 @@ router.post("/newComment", (req, res)=>{
 });
 
 /* Endpoint that will allow us to update an existing entry once a match has been found. The search should be done via a query parameter, whereas update information should be enclosed within the body. */
+
+
 
 /* Endpoint: http://localhost:4000/Blog-Server/deleteComment
 allow us to delete an entry from our .json file. This should be done thru the utilization of the parameter. */

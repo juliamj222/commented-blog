@@ -40,7 +40,7 @@ header {
 }
 
 /* Container Styles */
-.main-container {
+.main-container, {
   display: flex;
   gap: 20px;
   margin: 0 10px;
@@ -76,11 +76,8 @@ input[type="submit"] {
   font-size: 16px;
 }
 
-input[type="submit"]:hover {
-  background: var(--brown);
-}
 
-/* Add margin to the left of .submit-post and #search-input */
+/* Margin to the left of .submit-post and #search-input */
 .submit-entry, .edit-container, #search-input {
   margin-left: 10vw;
   margin-right: 10vw;

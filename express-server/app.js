@@ -12,10 +12,9 @@ app.get("/Blog-Server/test", (req, res) => { // test to see if the port is worki
     res.send("Hello World!");
 });
 
-
-
 app.use(express.static(`${__dirname}/public`)); // Serve static files from the server. 
 
 app.listen (PORT, () => {
     console.log("server is running on port", PORT); // console.log that the server is running
 })
+
