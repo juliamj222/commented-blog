@@ -1,47 +1,38 @@
-let table = document.querySelector(".blog-post"); 
+let table = document.querySelector(".blog-post");
+let commentsData; // the data from all the comments
 
-async function showComments(){
+async function showComments() {
+  let urlDisp = "http://localhost:4000/Blog-Server/";
+  try {
+    let response = await fetch(urlDisp);
+    commentsData = await response.json(); 
+    console.log(commentsData);
 
-let urlDisp = "http://localhost:4000/Blog-Server/";
-try{
-    let response=await fetch(urlDisp)
-    let data= await response.json()
-    console.log(data)
-    data.comments.forEach((comment)=>{
+    commentsData.comments.forEach((comment) => {
+// the comment information, displayed
+      const commentText = `Title: ${comment.title} Author: ${comment.author} Comment: ${comment.body}`;
 
-        let post_id = document.createElement("h6");
-        post_id.textContent = `${comment.post_id}`;
-        document.body.appendChild(post_id);
+      // displaying the comment text
 
-        let title = document.createElement("h3");
-        title.textContent = `${comment.title}`;
-        document.body.appendChild(title);
+      const commentElement = document.createElement("table");
+      commentElement.textContent = commentText;
 
-        let author = document.createElement("p");
-        author.textContent = `${comment.author}`;
-        document.body.appendChild(author);
-  
-        let body = document.createElement("p");
-        body.textContent = `${comment.body}`;
-        document.body.appendChild(body);
+      // Attach a click event listener to the comment element
+      commentElement.addEventListener("click", () => {
+        passToEdit(comment.post_id); // Pass the ID to passToEdit
+      });
 
-    })
-    } catch (err){
-        console.log(err)
-    }
+      // Append the comment element to the table or the desired container
+      table.appendChild(commentElement);
+    });
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-showComments()
-/* fetch(urlDisp)
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data);
-    data.results.forEach((allComments) => {
-      let h5 = document.createElement("h5");
-      h5.textContent = `${allComments.title}, ${allComments.author}, ${allComments.body}`;
-      document.body.appendChild(h5);
-    });
-  })
-  .catch((err) => console.error(err))
-  .then(() => console.log("Some code that runs after .catch() error handling"));
- */
+showComments();
+
+function passToEdit(postId) {
+  // Log the clicked comment's ID
+  console.log("Clicked ID: " + postId);
+}

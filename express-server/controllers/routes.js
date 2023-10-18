@@ -27,16 +27,16 @@ function save(data) {
     //return JSON.parse(file);
 }
 
-/* Endpoint: http://localhost:4000/Blog-Server/oneComment
+/* Endpoint: http://localhost:4000/Blog-Server/oneComment/:post_id
 one comment from the database selected by its post_id */
-router.get("/oneComment/:post_id", (req, res)=>{
+router.get("/oneComment/:post_id", async (req, res)=>{
         console.log(req.params);
         let commentArray=readComments()
         let commentToFind=commentArray.find((commentObject)=> commentObject.post_id == req.params.post_id);
         res.json({message: "Showing this comment", commentToFind: commentToFind});
 });
 
-/* Endpoint: http://localhost:4000/Blog-Server/newComment
+/* Endpoint: http://localhost:4000/Blog-Server/update/:post_id
 create a new entry which will be appended to the .json file's outermost array. */
 router.post("/newComment", (req, res)=>{
     const{title, author, body}=req.body
@@ -56,19 +56,41 @@ router.post("/newComment", (req, res)=>{
 });
 });
 
-/* Endpoint that will allow us to update an existing entry once a match has been found. The search should be done via a query parameter, whereas update information should be enclosed within the body. */
+/* Endpoint: http://localhost:4000/Blog-Server/deleteComment
+allow us to update an existing entry once a match has been found. The search should be done via a query parameter, whereas update information should be enclosed within the body. */
 
-
+router.patch("/update/:post_id", async (req, res) => {
+    try {
+              let commentArray = readComments();
+        const post_id = req.params.post_id;
+        const data = req.body;
+        // find the comment with the post_id
+        const commentIndex = commentArray.findIndex(commentObject => commentObject.post_id === post_id);
+        if (commentIndex === -1) {throw new Error("Comment not found");
+        }
+        // change the comment 
+        commentArray[commentIndex] = {...commentArray[commentIndex],
+            ...data};
+        save(commentArray);
+        res.json({
+            message: "Success from Update",
+            commentObject: commentArray[commentIndex]
+        });
+            } catch (error) {
+        res.status(500).json({
+            message: error.message
+        });
+    }
+});
 
 /* Endpoint: http://localhost:4000/Blog-Server/deleteComment
 allow us to delete an entry from our .json file. This should be done thru the utilization of the parameter. */
 
-router.delete("/deleteComment/:post_id", (req, res)=>{
+router.delete("/deleteComment/:post_id",  (req, res)=>{
     try {
-    
-    console.log(req.params.post_id); //maybe put only id
+    commentToDelete=req.params.post_id; 
     let commentArray=readComments()
-    let filteredCommentArray=commentArray.filter((commentObject)=> commentObject.post_id == req.params.post_id);
+    let filteredCommentArray=commentArray.filter((commentObject)=> commentObject.post_id !== commentToDelete);
     res.json({message: "Comment deleted", comments: commentArray});
     save(filteredCommentArray);
 } catch (error) {

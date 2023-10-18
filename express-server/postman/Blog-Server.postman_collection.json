@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "edb7024b-8024-4929-9878-763b37bcb56d",
+		"name": "Blog-Server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30399066"
+	},
+	"item": [
+		{
+			"name": "testing that things work",
+			"item": [
+				{
+					"name": "test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/Blog-Server/test/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"Blog-Server",
+								"test",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hey",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/Blog-Server/hey",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"Blog-Server",
+								"hey"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hello from GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/Blog-Server",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"Blog-Server"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Display all comments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/Blog-Server/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"Blog-Server",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update comment",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"title\": \"No\",\r\n        \"author\": \"It's me\",\r\n        \"body\": \"What's uppppp\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/Blog-Server/update/5041e544-8758-4b5e-91b1-48c20e3ea0f3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"Blog-Server",
+						"update",
+						"5041e544-8758-4b5e-91b1-48c20e3ea0f3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Comment",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/Blog-Server/deleteComment/5041e544-8758-4b5e-91b1-48c20e3ea0f3?=6a45bb70-3e52-445e-a3ba-ca8101402b18",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"Blog-Server",
+						"deleteComment",
+						"5041e544-8758-4b5e-91b1-48c20e3ea0f3"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "6a45bb70-3e52-445e-a3ba-ca8101402b18"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Display one comment",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/Blog-Server/oneComment/95cfc8f4-66c0-4c71-a5a9-1577e02729c3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"Blog-Server",
+						"oneComment",
+						"95cfc8f4-66c0-4c71-a5a9-1577e02729c3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post a new comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"title\": \"Fun in the sun\",\r\n        \"author\": \"John Smith\",\r\n        \"body\": \"Let's go to the beach!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/Blog-Server/newComment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"Blog-Server",
+						"newComment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
