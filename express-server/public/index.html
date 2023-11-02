@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Upright Education: The Blog</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="#" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -23,6 +24,7 @@
       <img src="https://images.unsplash.com/photo-1599692392256-2d084495fe15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGN1dGUlMjBwdXBweXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="Cute Puppy 2">
       <img src="https://images.unsplash.com/photo-1615751072497-5f5169febe17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y3V0ZSUyMHB1cHB5fGVufDB8fDB8fHww&auto.format&fit=crop&w=500&q=60" alt="Cute Puppy 3">
     </div>
+    
 <!-- published blog entries -->
     <section class="blog-posts">
      <table>
@@ -46,12 +48,12 @@
         <h2>Submit Your Own Entry</h2>
         <form id="entry-form">
             <label for="title">Title:</label>
-            <input type="text" class="title" required>
+            <input type="text" id="title" required>
             <label for="author">Author:</label>
-            <input type="text" class="author" required>
+            <input type="text" id="author" required>
             <label for="body">Content:</label>
-            <input type="text" class="body" required>
-            <input type="submit" value="Submit" class="post">
+            <input type="text" id="body" required>
+            <input type="submit" value="Submit" id="post">
         </form>
     </div>
 
