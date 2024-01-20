@@ -1,4 +1,4 @@
-# PROJECT: Blog Server
+# Commented - Blog Server
 
 Backend of a blog application, utilizing Model View Controller architecture.
 
@@ -10,32 +10,27 @@ Backend of a blog application, utilizing Model View Controller architecture.
 
 # Stories
 
-## Create your project
+· Display All Comments:
+Given the need to display all comments.
+When accessing the endpoint that displays all comments from the database (using blog.json).
+Then all comments are displayed.
 
-`npm init -y` to create project.
+· Display Single Comment:
+Given the need to display a single comment.
+When accessing the endpoint that displays one comment selected by its post_id.
+Then the specified comment is displayed.
 
-`express`, `nodemon`, and `dotenv` dependencies installed.
+· Create New Entry:
+Given the need to create a new entry.
+When accessing the endpoint to create a new entry, appended to the .json file's outermost array.
+Then a new entry is successfully created.
 
-`app.js` file with the entry points. `.gitignore` created and filled with node modules and environment variable.
+· Update Existing Entry:
+Given the need to update an existing entry.
+When accessing the endpoint to update an entry with a specified post_id.
+Then the selected entry is successfully updated.
 
-`api` folder which holds `blog.json` file. data schematic:
-
-```json
-[
-    {
-        "post_id": 1,
-        "title": "First Blog Post",
-        "author": "Julia MJ",
-        "body": "Today is a great day"
-    }
-]
-```
-`controllers` folder that stores `routes.js` file. endpoints to handle full CRUD functionality.
-
-## System Design
-
-- [ ] Endpoint that displays all comments from the database. In lieu of database, I use the `blog.json` file.
-- [ ] Endpoint that displays one comment from the database selected by its `post_id`
-- [ ] Endpoint that allows to create a new entry which will be appended to the `.json` file's outermost array.
-- [ ] Endpoint that allows to update an existing entry once a match has been found. The search is done via a query parameter, whereas update information is enclosed within the body.
-- [ ] Endpoint that allows to delete an entry from the `.json` file. This is done through the utilization of the parameter.
+· Delete Entry:
+Given the need to delete an entry.
+When accessing the endpoint to delete an entry using a specified parameter.
+Then the selected entry is successfully deleted.
